@@ -20,7 +20,9 @@ export default async function handler(req, res) {
       return res.status(response.status).json({ error: data.error.message });
     }
 
-    return res.status(200).json({ message: 'Playback paused' });
+    // return res.status(200).json({ message: 'Playback paused' });
+    return res.status(204).end(); // Clean, accurate status for success
+
   } catch (err) {
     return res.status(500).json({ error: 'Internal server error', message: err.message });
   }
